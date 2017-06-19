@@ -1,30 +1,54 @@
 <?php
 
+  $delete_status = '';
+
 	if(isset($_POST['delete'])){
 
-  	$string = file_get_contents('json/users.json');
-  	if($string)
-  		$array = json_decode($string, true);
-  	
-  	$username = $_POST['username'];
-  	$old_password = $_POST['old_password'];
-  	$new_password = $_POST['new_password'];
-  	$pw2 = $_POST['pw2'];
+    $string = file_get_contents('json/users.json');
+    if($string)
+      $users = json_decode($string, true);
 
-  	$index;
+    // Call function to check if password is valid
+    $delpswd = $_POST['delpswd'];
+    if (check_pswd($delpswd,$users)) {
+      echo '<script>console.log("yey")</script>';
 
-  	foreach($array as $key => $value) {
-  		if($value['username'] == $username 
-  			&& $value['password'] == $old_password
-  			&& $new_password == $pw2)  {
-  			$index=$key;
-  		}
-  	}
+      // Call function to update json file
+      delete_acct($delpswd,$users);
+    } else {
+      $delete_status = 'pswd_invalid';
+    }
 
-  	unset ($array[$index]);
+    echo '<script type="text/javascript">
+              var update_status="";
+              var delete_status="delete_msg";
+              document.getElementById("#update_modal").showModal();
+            </script>';
+  }
 
-  	$fp = fopen('json/users.json','w');
+  function delete_acct($password,$array) {
+    global $delete_status;
+
+    $username = $_SESSION['username'];
+    $groupcode = $_SESSION['groupcode'];
+
+    $index;
+
+    foreach($array as $key => $value) {
+      if($value['groupcode'] == $groupcode 
+        && $value['username'] == $username 
+        && $value['password'] == $password) {
+        $index=$key;
+      }
+    }
+
+    unset ($array[$index]);
+
+    $fp = fopen('json/users.json','w');
     fwrite($fp, json_encode($array, JSON_PRETTY_PRINT));
     fclose($fp);
+
+    $delete_status = 'delete_success';
+
   }
 ?>

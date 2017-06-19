@@ -11,19 +11,16 @@
     // Call function to check if password is valid
     $oldpswd = $_POST['oldpswd'];
     if (check_pswd($oldpswd,$users)) {
-      $update_status = 'pswd_valid';
 
       // Call function to update json file
-      if ($_POST['newpswd1'] != null &&
-          $_POST['newpswd2'] != null) {
-        updt_acct($oldpswd,$users);
-      }
+      updt_acct($oldpswd,$users);
     } else {
       $update_status = 'pswd_invalid';
     }
 
     echo '<script type="text/javascript"> 
               var update_status="update_msg";
+              var delete_status="";
               document.getElementById("#update_modal").showModal();
             </script>';
   }
@@ -51,6 +48,16 @@
     $newpswd1 = $_POST['newpswd1'];
     $newpswd2 = $_POST['newpswd2'];
 
+    if ($newpswd1 == '') {
+      $update_status = 'pswd_blank';
+      return;
+    }
+
+    if (strlen($newpswd1) < 4) {
+      $update_status = 'pswd_short';
+      return;
+    }
+
     if ($newpswd1 != $newpswd2) {
       $update_status = 'pswd_mismatch';
       return;
@@ -66,7 +73,7 @@
       }
     }
 
-    $array[$index]['password'] = $new_password;
+    $array[$index]['password'] = $newpswd1;
 
     $fp = fopen('json/users.json','w');
     fwrite($fp, json_encode($array, JSON_PRETTY_PRINT));

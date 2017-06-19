@@ -8,6 +8,7 @@
 
 <?php require_once "partials/_acct_logout.php" ?>
 <?php require_once "partials/_acct_update.php" ?>
+<?php require_once "partials/_acct_delete.php" ?>
 <?php require_once "partials/_jollibee.php" ?>
 <?php require_once "partials/_showmenu.php" ?>
 <?php require_once "partials/_addtocart.php" ?>
@@ -91,7 +92,7 @@
     <script src="js/bootstrap.min.js"></script>  
 
 	<!-- Javascript for countdown timer) -->
-    <script src="js/home_countdown.js"></script>
+    <!-- <script src="js/home_countdown.js"></script> -->
 
     <!-- Javascript for menu modals (delete/update) -->
     <script src="js/menu_modals.js"></script>

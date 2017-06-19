@@ -1,22 +1,7 @@
 [
     {
         "groupcode": "TUITT",
-        "username": "admin",
-        "password": "master"
-    },
-    {
-        "groupcode": "TUITT",
         "username": "emman",
-        "password": "heya"
-    },
-    {
-        "groupcode": "TUITT",
-        "username": "ruel",
-        "password": "yowa"
-    },
-    {
-        "groupcode": "TUITT",
-        "username": "daryl",
-        "password": "wasap"
+        "password": "master"
     }
 ]
