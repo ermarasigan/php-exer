@@ -1,6 +1,13 @@
-<?php session_start() ?>
-<?php require_once "partials/_authenticate_login.php"; ?>
-<?php require_once "partials/_validate_signup.php"; ?>
+<?php 
+  session_start();
+
+  function get_title() {
+  echo 'Home page';
+  }
+?>
+
+<?php require_once "partials/_acct_login.php"; ?>
+<?php require_once "partials/_acct_signup.php"; ?>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head -->
 
-    <title>Ordertaker</title>
+    <title><?php get_title() ?></title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,7 +33,7 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="2">
 
 	<!-- Header partial -->
-	<?php require_once "partials/_home_header.php"; ?>
+	<?php require_once "partials/_header_home.php"; ?>
 
 	<!-- Main welcome container -->
 	<main class="container-fluid">
@@ -47,10 +54,10 @@
   	<?php require_once "partials/_footer.html"; ?>
 
 	<!-- Sign up modal partial -->
-  	<?php require_once "partials/_signup_modal.php"; ?>
+  	<?php require_once "partials/_modal_signup.php"; ?>
 
 	<!-- Log in modal partial -->
-  	<?php require_once "partials/_login_modal.php"; ?>
+  	<?php require_once "partials/_modal_login.php"; ?>
  	 	
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

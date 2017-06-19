@@ -2,16 +2,23 @@
 
 	function show($items) {
 
+		echo "<div id='menu'>";
+		echo '<form method="POST" action ="">';
+		echo create_dropdown($items,'CATEGORY');
+		echo create_dropdown($items,'DRINK');
+		
+		echo '<button id="submit_btn" class="btn btn-success"';
+		echo 'type="submit" name="submit">Submit';
+		echo '</button>';
+		// echo '<input ';
+		// echo 'type="submit" name="submit" value="Submit">';
+
+		echo '</form>';
+
 		if(isset($_POST['submit'])){
 			$drink = $_POST['DRINK'];
 			$category = $_POST['CATEGORY'];
 
-			// echo "<h1>";
-			// echo "<br>Category: " . $category . "<br>";
-			// echo "Drink Option: " . $drink . "<br>";
-			// echo "</h1>";
-
-			echo "<div id='menu'>";
 			for($i=0; $i<count($items); $i++) {
 				if ($drink=='all' && $category=='all') {
 					display($items[$i]);
@@ -30,9 +37,16 @@
 						display($items[$i]);
 					}
 				}				
+			}	
+		} 
+			else {
+
+			for($i=0; $i<count($items); $i++) {
+				display($items[$i]);
 			}
-			echo "</div>";
 		}
+
+		echo "</div>";
 	}
 
 	function display($arr){
@@ -43,6 +57,11 @@
 				echo($value) . "<br>";
 			}
 		}
+		echo '<form method="POST" action ="">';
+		echo '<button id="submit_btn" class="btn btn-danger"';
+		echo 'type="submit" name="addtocart">Add to Cart';
+		echo '</button>';
+		echo '</form>';
 		echo "</div>";
 	}
 

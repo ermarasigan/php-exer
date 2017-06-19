@@ -1,19 +1,17 @@
-<?php session_start() ?>
-<?php
-	if(isset($_POST['logout'])){
-		// echo $_SESSION['username'] . " is logged out successfully";
-		session_unset();
-		// echo $_SESSION['username'] . " is logged out successfully";
-		session_destroy();
+<?php 
+	session_start();
+
+	function get_title() {
+	echo 'Menu page';
 	}
 ?>
-<?php
-	if(isset($_POST['home'])){
-		header('location:index.php',true, 301);
-	}
-?>
+
+<?php require_once "partials/_acct_logout.php" ?>
+<?php require_once "partials/_acct_update.php" ?>
 <?php require_once "partials/_jollibee.php" ?>
-<?php require_once "partials/_getmenu.php" ?>
+<?php require_once "partials/_showmenu.php" ?>
+<?php require_once "partials/_addtocart.php" ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +21,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head -->
 
-    <title>Ordertaker</title>
+    <!-- <title>Ordertaker</title> -->
+    <title><?php get_title() ?></title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,71 +38,51 @@
 <body>
 
 	<!-- Header partial -->
-	<?php require_once "partials/_menu_header.php"; ?>
+	<?php 
+	require_once "partials/_header_menu.php";
+	 ?>
 
-	<!-- Main welcome container -->
-	<main class="container-fluid">
+	<!-- Main menu container -->
+	<main id="menubg" class="container-fluid">
   		<div class="row">
-  			<div id="menubg" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-
-  			<form method="POST" action ="">
-		<?php 
-			$username = $_SESSION['username'];
-			$dispname = ucfirst($username);
-			echo "<span>";
-			echo "<br><br>Hi $dispname, order na tayo sa ";
-			echo ucfirst($_SESSION['choose']) . "<br>";
-			echo "</span>";
-			echo create_dropdown($jollibee,'CATEGORY');
-			echo create_dropdown($jollibee,'DRINK');
-		?>
-		<input type="submit" name="submit" value="Submit">
-	</form>
-
-	<main>
-		<?php
-			switch ($_SESSION['choose']) {
-				case 'jollibee':
-					show($jollibee);
-					break;
-				
-				default:
-					break;
-			}
-			
-		?>
+			<div id ="menubox"
+			class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<?php
+				if ($_SESSION != null) {
+				// if ($_SESSION['username'] > '') {
+					switch ($_SESSION['choose']) {
+						case 'jollibee':
+							show($jollibee);
+							break;
+						
+						default:
+							break;
+					}
+				}
+				// }
+				?>
+			</div>
+			<?php
+			if ($_SESSION != null) {
+				$cartuser=$_SESSION['username'];
+				showcart($cartuser);
+			// 	echo '<div id="cartbox" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">';
+			// 	echo '<h1>Your cart</h1>';
+			// 	echo '</div>';
+				}
+			?>	
+		</div>
 	</main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  				<!-- <div id="countdown">
-		  			<h2 id="countdown-text"> Log in and lock in <br> your orders in</h2>
-		  			<h6 id="countdown-clock" style="padding-top: 10px"></h6>
-		  		</div> -->
-  			</div>
-  		</div>
-  	</main>
 
   	<!-- Footer partial -->
   	<?php require_once "partials/_footer.html"; ?>
 
-	<!-- Log in modal partial -->
-  	<?php require_once "partials/_logout_modal.php"; ?>
+	<!-- Update modal partial -->
+  	<?php require_once "partials/_modal_update.php"; ?>
+
+  	<!-- Log out modal partial -->
+  	<?php require_once "partials/_modal_logout.php"; ?>
  	 	
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -114,14 +93,9 @@
 	<!-- Javascript for countdown timer) -->
     <script src="js/home_countdown.js"></script>
 
-    <!-- Javascript for homepage modals (signup/login) -->
-    <script src="js/home_modals.js"></script>
-
-    <script type="text/javascript">
-		$(document).ready(function(){
-    	$('[data-toggle="popover"]').popover(); 
-		});
-	</script>
+    <!-- Javascript for menu modals (delete/update) -->
+    <script src="js/menu_modals.js"></script>
+    
 	
 </body>
 </html>

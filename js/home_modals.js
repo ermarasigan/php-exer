@@ -1,10 +1,10 @@
 // Javascript for homepage modals (signup/login)
 
 $('#signup_modal').on('shown.bs.modal', function () {
-	$('#reguser').focus();
+	$('#regcode').focus();
 });
 $('#login_modal').on('shown.bs.modal', function () {
-	$('#username').focus();
+	$('#groupcode').focus();
 });
 
 // $('#login_modal').on('hide.bs.modal', function () {

@@ -16,18 +16,27 @@
         <!-- Modal Body-->
         <div class="modal-body">
           <form action="" method="POST">
+
+            <div class="form-group">
+              <label for="regcode">Group Code:</label>
+              <input type="text" class="form-control" id="regcode" name="regcode">
+            </div>
+
             <div class="form-group">
               <label for="reguser">Username:</label>
               <input type="text" class="form-control" id="reguser" name="reguser">
             </div>
+
             <div class="form-group">
               <label for="regpswd1">Password:</label>
               <input type="password" class="form-control" id="regpswd1" name="regpswd1">
             </div>
+
             <div class="form-group">
               <label for="regpswd2">Confirm Password:</label>
               <input type="password" class="form-control" id="regpswd2" name="regpswd2">
             </div>
+
             <div class="form-group">
               <button type="submit" name="signup"  class="btn btn-info btn-block">
                 Sign Up

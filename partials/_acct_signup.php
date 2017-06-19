@@ -1,15 +1,15 @@
 <?php
 
-  $string = file_get_contents('json/users.json');
-  $usercreds = json_decode($string, true);
-  $usernames = array_unique(array_column($usercreds,'username'));
-  // var_dump($usercreds);
-
   $output = '';
   $signup_status = '';
 
   if(isset($_POST['signup'])){
-    // echo add_acct($usercreds);
+
+    // Retrieving data from *.json file
+    $string = file_get_contents('json/users.json');
+    $usercreds = json_decode($string, true);
+    $usernames = array_unique(array_column($usercreds,'username'));
+
     add_acct($usercreds);
     if ($output > '') {
       if ($signup_status != 'signup_success') {
@@ -26,12 +26,24 @@
     global $output;
     global $signup_status;
 
+    $regcode = strtoupper($_POST['regcode']);
     $reguser = $_POST['reguser'];
     $regpswd1 = $_POST['regpswd1'];
     $regpswd2 = $_POST['regpswd2'];
 
     // Empty array
     $new_user = [];
+
+    // Check if supplied username is blank
+    if ($regcode == ''){
+      $output .= "Group Code is required";
+      return $output;
+    }
+
+    if ($regcode != 'TUITT'){
+      $output .= $regcode . " is not a valid Group Code";
+      return $output;
+    }
 
     // Check if supplied username is blank
     if ($reguser == ''){
@@ -64,6 +76,7 @@
     }
 
     // Add data to JSON
+    $new_user['groupcode'] = $regcode;
     $new_user['username'] = $reguser;
     $new_user['password'] = $regpswd1;
 

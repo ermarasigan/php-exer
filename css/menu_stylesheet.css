@@ -5,12 +5,13 @@
 }
 
 #menu-header {
-	background: red;
+	background: #e32929;
 }
 
 #menu-user,
 #menu-logout,
-#menu-brand {
+#menu-brand,
+#menu-home {
 	padding: 20px 15px;
 }
 
@@ -20,26 +21,54 @@
 	font-size: 3em;
 	color: white;
 }
-#menu-brand:focus {
-	color: red;
-}
+/*#menu-brand:focus {
+	color: white;
+}*/
 
 #menu-brand:hover {
 	color: orange;
 }
 
-#menu-logout {
+#menu-home {
+	font-family: "poppinsmedium";
+    font-size: 1.5em;
+    color: white;
+}
+
+#menu-logout,
+#menu-home {
 	margin-right: 30px;
 }
 
 #menubg {
 	width: 100%;
 	min-height: 100vh;
-	background: #ffb80e;
+	background: rgba(255,184,14,0.8);
 	overflow-y: auto;
 }
 
-#menu-logout button {
+#cartbox {
+	/*width: 100%;*/
+	width: 300px;
+	min-height: 380px;
+	background-color: #813531;
+	background-size: cover;
+	/*overflow-y: auto;*/
+	padding: 10px;
+	border-radius: 10px;
+	/*box-sizing: border-box;*/
+	margin: 160px 10px 20px;
+	text-align: center;
+}
+
+#cartbox h1,
+#cartbox p  {
+	font-family: poppinsmedium;
+	font-size: 2.5em;
+}
+
+#menu-logout button,
+#menu-home button {
 	background: transparent;
 	border: 1px solid transparent;
 }
@@ -49,25 +78,31 @@ button:focus {
 }
 
 .itembox{
-	background:orange;
+	background: rgba(255,97,29,0.5);
+	/*background:#ff611d;
+	opacity: 0.5;*/
 	width: 300px;
 	text-align: center;
 	color: white;
 	padding: 10px;
 	margin: 10px;
 	box-sizing: content-box;
-	font-family: cursive;
+	/*font-family: cursive;*/
+	font-family: poppinsregular;
+	font-size: 1.2em;
 	float: left;
 	border-radius: 10px;
 	display: inline-block;
-	height: 330px;
+	height: 360px;
+	/*height: auto;*/
 }
 
-main {
+#menubox {
 	position: relative;
 }
 
 #menu {
+	top: 100px;
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
@@ -75,16 +110,8 @@ main {
 	width: 680px;
 }
 
-form
-,main h1 {
+form {
 	text-align: center;
-}
-
-main h1 {
-	color: red;
-	font-family: sans-serif;
-	margin: 0;
-	padding: 0;
 }
 
 .clear:after {
@@ -93,8 +120,9 @@ main h1 {
   	clear: both;
 }
 
-form input 
-,form select{
+form input,
+form select,
+#submit_btn {
 	height: 35px;
 	border-radius: 5px;
 	font-size: 20px;

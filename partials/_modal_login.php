@@ -16,6 +16,7 @@
         <!-- Modal Body-->
         <div class="modal-body">
           <form action="" method="POST">
+
             <div class="form-group">
               <label for="choose">Select delivery:</label>
               <select name="choose" class="form-control" id="choose">
@@ -23,17 +24,22 @@
                 <option value="mcdonalds">Mcdo</option>
               </select>
             </div>
+
+            <div class="form-group">
+              <label for="password">Group Code:</label>
+              <input type="text" class="form-control" id="groupcode" name="groupcode">
+            </div>
+
             <div class="form-group">
               <label for="username">Username:</label>
               <input type="text" class="form-control" id="username" name="username">
             </div>
+
             <div class="form-group">
               <label for="password">Password:</label>
-              <input type="password" class="form-control" id="password" name="password" 
-              data-error="Password is required" required>
+              <input type="password" class="form-control" id="password" name="password">
             </div>
 
-            <!-- <input type="submit" name="login" value="Log In"> -->
             <div class="form-group">
               <button id="login_btn" type="submit" name="login" class="btn btn-primary btn-block">
                 Log In

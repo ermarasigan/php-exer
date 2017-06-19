@@ -15,7 +15,7 @@ $(document).ready(function () {
 
         if ($(window).scrollTop() >= 200) {
             $('#js-header').addClass('sticky');
-            $('#js-header').css('background','red');
+            $('#js-header').css('background','#e32929');
             // $('#js-header').css('padding',0);
 
             $('#js-brand').css('padding', (30,15));
