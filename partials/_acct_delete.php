@@ -48,6 +48,9 @@
     fwrite($fp, json_encode($array, JSON_PRETTY_PRINT));
     fclose($fp);
 
+    session_unset();
+    session_destroy();
+    header('location:index.php');
     $delete_status = 'delete_success';
 
   }
