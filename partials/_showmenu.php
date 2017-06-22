@@ -15,9 +15,17 @@
 
 		echo '</form>';
 
-		if(isset($_POST['submit'])){
-			$drink = $_POST['DRINK'];
-			$category = $_POST['CATEGORY'];
+		if(isset($_POST['submit']) or isset($_POST['addtocart'])){
+
+			if(isset($_POST['submit'])) {
+				$drink = $_POST['DRINK'];
+				$category = $_POST['CATEGORY'];
+				$_SESSION['DRINK'] = $drink;
+				$_SESSION['CATEGORY'] = $category;
+			} else {
+				$drink = $_SESSION['DRINK'];
+				$category = $_SESSION['CATEGORY'];
+			}
 
 			for($i=0; $i<count($items); $i++) {
 				if ($drink=='all' && $category=='all') {

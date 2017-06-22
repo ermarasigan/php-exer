@@ -48,4 +48,19 @@
 		,'DRINK' => 'No drink'
 		]
 	];
+
+	$filename = 'json/jollibee.json';
+
+	// Check if file exists
+	fopen($filename,'a');
+	$string = file_get_contents($filename);
+
+	if($string != null) {
+			$array = json_decode($string, true);
+	} else {
+		$fp = fopen($filename,'w');
+		fwrite($fp, json_encode($jollibee,JSON_PRETTY_PRINT));
+		fclose($fp);
+	}
+
 ?>
