@@ -17,18 +17,18 @@
         <div class="modal-body">
           <form action="" method="POST">
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="choose">Select delivery:</label>
               <select name="choose" class="form-control" id="choose">
                 <option value="jollibee">Jollibee</option>
                 <option value="mcdonalds">Mcdo</option>
               </select>
-            </div>
+            </div> -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="password">Group Code:</label>
               <input type="text" class="form-control" id="groupcode" name="groupcode">
-            </div>
+            </div> -->
 
             <div class="form-group">
               <label for="username">Username:</label>

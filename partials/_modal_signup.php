@@ -17,10 +17,10 @@
         <div class="modal-body">
           <form action="" method="POST">
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="regcode">Group Code:</label>
               <input type="text" class="form-control" id="regcode" name="regcode">
-            </div>
+            </div> -->
 
             <div class="form-group">
               <label for="reguser">Username:</label>

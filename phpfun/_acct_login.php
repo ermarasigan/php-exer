@@ -22,9 +22,10 @@
 
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
-    $groupcode = strtoupper(htmlspecialchars($_POST['groupcode']));
+    // $groupcode = strtoupper(htmlspecialchars($_POST['groupcode']));
+     $groupcode = $company;
 
-    $choose = ($_POST['choose']);    
+    // $choose = ($_POST['choose']);    
 
     function authenticate($username,$password,$groupcode){
       global $users;
@@ -42,7 +43,7 @@
       // echo 'User is valid';
       $_SESSION['username'] = $username;
       $_SESSION['groupcode'] = $groupcode;
-      $_SESSION['choose'] = $choose;
+      // $_SESSION['choose'] = $choose;
       $_SESSION['role'] = "Admin";
       header('location:menu.php', true, 301);
     }else{

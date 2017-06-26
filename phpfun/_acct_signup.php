@@ -24,9 +24,11 @@
 
   function add_acct($database){
     global $output;
+    global $company;
     global $signup_status;
 
-    $regcode = strtoupper($_POST['regcode']);
+    // $regcode = strtoupper($_POST['regcode']);
+    $regcode = $company;
     $reguser = $_POST['reguser'];
     $regpswd1 = $_POST['regpswd1'];
     $regpswd2 = $_POST['regpswd2'];
@@ -35,15 +37,15 @@
     $new_user = [];
 
     // Check if supplied username is blank
-    if ($regcode == ''){
-      $output .= "Group Code is required";
-      return $output;
-    }
+    // if ($regcode == ''){
+    //   $output .= "Group Code is required";
+    //   return $output;
+    // }
 
-    if ($regcode != 'TUITT'){
-      $output .= $regcode . " is not a valid Group Code";
-      return $output;
-    }
+    // if ($regcode != 'TUITT'){
+    //   $output .= $regcode . " is not a valid Group Code";
+    //   return $output;
+    // }
 
     // Check if supplied username is blank
     if ($reguser == ''){

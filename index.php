@@ -7,9 +7,10 @@
   	echo $title;
   }
 ?>
+<?php require_once "phpfun/connectdb.php"; ?>
 <?php require_once "phpfun/_acct_login.php"; ?>
 <?php require_once "phpfun/_acct_signup.php"; ?>
-<?php require_once "phpfun/connectdb.php"; ?>
+
 
 
 <!DOCTYPE html>
@@ -27,6 +28,8 @@
     <link rel="stylesheet" type="text/css" href="css/font_declarations.css">
 
     <!-- Formatting -->
+
+	<link rel="stylesheet" type="text/css" href="css/scrolling-nav.css">
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 
 </head>
@@ -39,17 +42,34 @@
 
 	<div class="container-fluid" id="welcomebg">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-				<!-- <h1> Everyone loves to eat </h1> -->
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+				<div style="border: 3px solid white; border-radius: 0 15px; padding: 20px; margin-bottom: 15px; ">
+				<h2 style="color: white;font-family: 'poppinssemibold';" > DO YOU LOVE <br> TO EAT? </h2>
+				
+				</div>
+				<a class="btn btn-primary btn-lg page-scroll" href="#about">See more</a>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> -->
 				<!-- <h1> Everyone loves to eat </h1>
 				<a href="menu.php" class="btn btn-default btn-lg btn-block"> Add New Item</a>
 
 				<a href="logout.php" class="btn btn-default btn-lg btn-block"> Log out</a> -->
-			</div>
+			<!-- </div> -->
 		</div>
 	</div>
+
+	<!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Me too!</h2>
+                    <h3>Sign up now and let's order food.</h3>
+                    <a class="btn btn-default btn page-scroll" href="#">Back to top</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 	
 	<!-- Sign up modal partial -->
@@ -68,6 +88,10 @@
 
     <!-- Javascript for homepage modals (signup/login) -->
     <script src="js/home_modals.js"></script>
+
+     <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
 	$password='';
 	$database='exer';
 
+	$company='TUITT';
 
 	$conn = mysqli_connect($host,$username,$password,$database);
 

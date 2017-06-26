@@ -2,7 +2,12 @@
     {
         "groupcode": "TUITT",
         "username": "emman",
-        "password": "test",
+        "password": "master",
         "role": "admin"
+    },
+    {
+        "groupcode": "TUITT",
+        "username": "sano",
+        "password": "ming"
     }
 ]

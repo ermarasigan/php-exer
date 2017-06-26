@@ -8,7 +8,15 @@
 	        	<span class="icon-bar"></span>
 	        	<span class="icon-bar"></span> 
       		</button>
-      		<a id="js-brand" class="navbar-brand" href="index.php">
+      		<a id="js-brand" class="navbar-brand" 
+      			<?php
+					if (isset($_SESSION['username'])){ 
+						echo 'href="menu.php"';
+					}else{
+						echo 'href="index.php"';
+					}
+				?>	
+      			>
       			2eat
       		</a>
     	</div>
