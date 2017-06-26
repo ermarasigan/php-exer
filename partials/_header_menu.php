@@ -1,6 +1,7 @@
 <!-- Header partial for Menu page -->
 
-<nav id="menu-header" class="navbar navbar-default row navbar-fixed-top" >
+<nav id="menu-header" class="navbar navbar-default row">
+<!-- navbar-fixed-top" > -->
     <div class="container-fluid">
     	<div class="navbar-header ">
       		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -15,7 +16,13 @@
     	<div class="collapse navbar-collapse" id="myNavbar">
 	      	<ul class="nav navbar-nav navbar-right">
 	      		<li>
-					<a id="menu-user" href="#" data-toggle="modal" data-target="#update_modal">
+					<a id="menu-user" href="#" 
+						<?php
+							if ($_SESSION != null){ 
+								echo 'data-toggle="modal" data-target="#update_modal"';
+							}
+						?>
+					>
 					<!-- <a id="menu-user" href="#" data-toggle="popover" data-placement="bottom"
 					title="Account update/delete"
 					data-content="Will be enabled in upcoming patch"> -->
@@ -32,7 +39,9 @@
 	        	
 	        	<li>
 	        		<?php if ($_SESSION != null) {
-	        			echo '<a id="menu-logout" href="#" data-toggle="modal" data-target="#logout_modal">';
+	        			echo '<a id="menu-logout" href="#" ';
+	        			// echo data-toggle="modal" data-target="#logout_modal"
+	        			echo '>';
 	        			echo '<form method="POST" action ="">';
 	        				 
 		        				echo '<button type="submit" name="logout">';

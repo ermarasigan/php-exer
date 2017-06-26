@@ -46,6 +46,11 @@
               </button>
             </div>
             <?php
+
+                if(!isset($login_status)){
+                  $login_status = "";
+                };
+
                 if ($login_status=="login_error") {
                   echo '<div class="alert alert-danger">';
                   echo 'Incorrect login details';

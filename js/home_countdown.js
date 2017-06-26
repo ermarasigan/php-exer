@@ -19,7 +19,7 @@ var current_day = current_date.getDate();
 // var countDownDate = new Date("Jan 5, 2016 15:37:25").getTime();
 
 // Set countdown to certain time today
-var countDownDate = new Date(current_year, current_month, current_day, 10, 00).getTime();
+var countDownDate = new Date(current_year, current_month, current_day, 17, 00).getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {

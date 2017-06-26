@@ -44,10 +44,9 @@
 	 ?>
 
 	<!-- Main menu container -->
-	<main id="menubg" class="container-fluid">
-  		<div class="row">
-			<div id ="menubox"
-			class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+	<main id="menubg" >
+  		<div >
+			<div id ="menubox" class="container">
 				<?php
 				if ($_SESSION != null) {
 				// if ($_SESSION['username'] > '') {
@@ -63,21 +62,26 @@
 				// }
 				?>
 			</div>
+			<!-- <div id="cartbox" class="col-xs-12 col-sm-12 col-md-4 col-lg-4"> -->
 			<?php
 			if ($_SESSION != null) {
-				$cartuser=$_SESSION['username'];
-				showcart($cartuser);
+				// $cartuser=$_SESSION['username'];
+				// showcart($cartuser);
 			// 	echo '<div id="cartbox" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">';
 			// 	echo '<h1>Your cart</h1>';
 			// 	echo '</div>';
 				}
 			?>	
+
+			<!-- </div> -->
 		</div>
 	</main>
 
 
   	<!-- Footer partial -->
-  	<?php require_once "partials/_footer.html"; ?>
+  	<?php 
+  	require_once "partials/_footer.html";
+  	 ?>
 
 	<!-- Update modal partial -->
   	<?php require_once "partials/_modal_update.php"; ?>

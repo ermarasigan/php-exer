@@ -2,7 +2,7 @@
 
 	function show($items) {
 
-		echo "<div id='menu'>";
+		echo "<div id='menu' class='row'>";
 		echo '<form method="POST" action ="">';
 		echo create_dropdown($items,'CATEGORY');
 		echo create_dropdown($items,'DRINK');
@@ -58,7 +58,7 @@
 	}
 
 	function display($arr){
-		echo "<div class='itembox clear'>";
+		echo "<div class='itembox col-xs-12 col-sm-12 col-md-3 col-lg-3 clear'>";
 		foreach ($arr as $key => $value) {
 			if ($key != 'CATEGORY' &&
 				$key != 'DRINK') {

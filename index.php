@@ -37,15 +37,15 @@
 
 	<!-- Main welcome container -->
 	<main class="container-fluid">
-  		<div class="row">
-  			<div id="welcomebg" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  				<div id="countdown">
-		  			<h2 id="countdown-text"> Log in and lock in <br> your orders in</h2>
-		  			<h6 id="countdown-clock" style="padding-top: 10px"></h6>
-		  		</div>
-  			</div>
-  		</div>
-  	</main>
+		<div class="row">
+			<div id="welcomebg" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div id="countdown">
+	  			<h2 id="countdown-text"> Log in and lock in <br> your orders in</h2>
+	  			<h6 id="countdown-clock" style="padding-top: 10px"></h6>
+	  		</div>
+			</div>
+		</div>
+	</main>
 
   	<!-- Home page sections -->
   	<?php require_once "partials/_sections.html"; ?>
