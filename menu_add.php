@@ -1,17 +1,7 @@
-<?php 
-  session_start();
-
-  function get_title() {
-  	global $title;
-  	$title='Menu page';
-  	echo $title;
-  }
-?>
+<?php session_start(); ?>
 <?php require_once "phpfun/connectdb.php"; ?>
+<?php require_once "phpfun/additem.php"; ?>
 <?php require_once "phpfun/showmenu.php"; ?>
-<?php require_once "phpfun/acctlogout.php" ?>
-<?php require_once "phpfun/_acct_update.php" ?>
-<?php require_once "phpfun/_acct_delete.php" ?>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head -->
 
-	<title><?php get_title() ?></title>
+	<title>Home Page</title>
 
 	<!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,9 +24,7 @@
 <body>
 
 	<!-- Header Partial -->
-	<?php 
-  require_once "partials/_header.php";
-   ?>
+	<?php require_once "partials/_header.php"; ?>
 
 	<div class="container-fluid" id="welcomebox">
 		<div class="row">
@@ -44,15 +32,23 @@
 				<h1> Everyone loves to eat </h1>
 				<?php showmenu('display'); ?>
 			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<br>
+				<form method='post' action=''>
+					<div class="form-group">
+						<label for="name">Item name:</label>
+						<input type="text" name="name" id="name">
+					</div>
+					<div class="form-group">
+					 	<label for="price">Item price:</label>
+						<input type="number" min=0 name="price" id="price">
+					</div>
+					<button name="additem" class="btn btn-info">Add Item</button>
+					<button name="cancel" class="btn btn-warning">Cancel</button>
+				</form>
+			</div>
 
-			<!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				
-			</div> -->
-    </div>
 	</div>
-
-	<!-- Update modal partial -->
-  	<?php require_once "partials/_modal_update.php"; ?> 	 	
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.min.js"></script>
@@ -61,11 +57,5 @@
     or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>  
 
-     <!-- Javascript for menu modals (delete/update) -->
-    <script src="js/menu_modals.js"></script>
-
 </body>
 </html>
-
-
-
