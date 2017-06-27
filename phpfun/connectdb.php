@@ -5,6 +5,11 @@
 	$password='';
 	$database='exer';
 
+	// $host='198.91.81.8';
+	// $username='emmanlal_admin';
+	// $password='master';
+	// $database='emmanlal_exer';
+
 	$company='TUITT';
 
 	$conn = mysqli_connect($host,$username,$password,$database);
@@ -14,5 +19,7 @@
 	} else {
 		echo 'Connected unsuccessfully!';
 	}
+
+
 
 ?>
