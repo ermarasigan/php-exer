@@ -127,7 +127,8 @@
 			    	}
 		    	}
 			} else {
-				echo "not found";
+				echo "Menu not yet uploaded for today. <br> 
+				Standby for updates.";
 		}
 	}
 ?>
