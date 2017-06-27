@@ -12,7 +12,7 @@ CREATE TABLE `users` (
 );
 
 INSERT into users (`groupcode`,`username`,`password`,`role`)
-values ('tuitt','emman','master','admin');
+values ('TUITT','emman','master','admin');
 
 CREATE TABLE menu (
 	`id` int not null auto_increment,

@@ -139,7 +139,7 @@ h6 {
 #js-signup,
 #js-login,
 #js-brand {
-	padding: 10% 15px;
+	padding: 15px 15px;
 }
 
 
@@ -229,8 +229,32 @@ h6 {
 	box-sizing: content-box;
 	/*font-family: cursive;*/
 	font-family: poppinsregular;
-	font-size: 3em;
+	font-size: 2.5em;
 	float: left;
+	border-radius: 10px;
+	display: inline-block;
+	min-height: 160px;
+	/*height: auto;*/
+}
+
+.cartbox{
+	/*background: rgba(255,97,29,0.5);*/
+	/*background: #e3a967;*/
+	/*background: #e36b67;*/
+	background:#ff611d;
+	opacity: 0.5;
+	/*width: 300px;*/
+	width :90% ;
+	text-align: center;
+	color: white;
+	padding: 10px;
+	margin: 10px;
+	margin-right: 20px;
+	box-sizing: content-box;
+	/*font-family: cursive;*/
+	font-family: poppinsregular;
+	font-size: 2em;
+	/*float: left;*/
 	border-radius: 10px;
 	display: inline-block;
 	min-height: 200px;

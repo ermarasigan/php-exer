@@ -3,7 +3,7 @@
 
   function get_title() {
   	global $title;
-  	$title='Menu page - delete item';
+  	$title='Menu page';
   	echo $title;
   }
 ?>
@@ -13,17 +13,25 @@
 
 <!-- Main Section -->
 <main class="container-fluid" id="welcomebox">
-	<div class="row text-center">
+	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 			<h1> Everyone loves to eat </h1>
-			<?php showmenu('delete'); ?>
+			<?php showmenu('display'); ?>
+		</div>
 
-			
-		</div>
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-			
+			<h1> Everyone loves to eat </h1>
+			<div class="cartbox" id="target">
+				<h3>
+					<?php
+						echo $_SESSION['username'] . "'s cart";
+						echo $id;
+					?>
+				</h3>
+				
+			</div>
 		</div>
-	</div>
+  </div>
 </main>
 
 <!-- Footer Partial (including javascript) -->

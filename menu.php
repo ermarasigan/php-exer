@@ -7,65 +7,66 @@
   	echo $title;
   }
 ?>
-<?php require_once "phpfun/connectdb.php"; ?>
-<?php require_once "phpfun/showmenu.php"; ?>
-<?php require_once "phpfun/acctlogout.php" ?>
-<?php require_once "phpfun/_acct_update.php" ?>
-<?php require_once "phpfun/_acct_delete.php" ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head -->
+<!-- Header Partial (including php functions) -->
+<?php require_once "partials/_header.php"; ?>
 
-	<title><?php get_title() ?></title>
+<!-- Main Section -->
+<main class="container-fluid" id="welcomebox">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<h1> Everyone loves to eat </h1>
+			<?php showmenu('display'); ?>
+		</div>
 
-	<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/font_declarations.css">
+		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<h1> Everyone loves to eat </h1>
+			<div class="cartbox">
+				<h4 id="target">
+					<?php
+						echo "<span style='font-size: 2em; text-align: center;'>";
+						echo $_SESSION['username'] . "'s cart" . "<br>";
+						echo "</span>";
 
-    <!-- Formatting -->
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+						echo "<hr>";
 
-</head>
-<body>
+						$cart_total=0;
 
-	<!-- Header Partial -->
-	<?php 
-  require_once "partials/_header.php";
-   ?>
+						
+						if(isset($_SESSION['itemname'])) {
+							foreach ($_SESSION['itemname'] as $key => $value) {
+								if($_SESSION['cart_items'][$key] > 0) {
+									$qty = $_SESSION['cart_items'][$key];
+									$price = $_SESSION['itemprice'][$key];
+									$subtotal = $price * $qty;
+									$cart_total+=$subtotal;
 
-	<div class="container-fluid" id="welcomebox">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-				<h1> Everyone loves to eat </h1>
-				<?php showmenu('display'); ?>
-			</div>
+									echo "<div class='text-left' style='font-size: 1.5em;'>";
+									echo "<input type='submit' value='&times' 
+									style='color: red; background: transparent; outline:none; border: 1px solid transparent;'>". " ";
+									echo $value; 
+									echo "</div>";
 
-			<!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									echo "<div class='text-center' style='font-size: 1.3em;'>";
+									echo $qty . " x ₱" . $price . " = ₱" . $subtotal 
+										 ."<br><br>";
+									echo "</div>";
+								}
+							}
+							
+							echo "<hr>";
+							echo "<span style='font-size: 2em; text-align: center;'>";
+							echo "TOTAL BILL: ₱". $cart_total;
+							echo "</span>";
+						}
+						
+					?>
+				</h4>
 				
-			</div> -->
-    </div>
-	</div>
+			</div>
+		</div>
+  </div>
+</main>
 
-	<!-- Update modal partial -->
-  	<?php require_once "partials/_modal_update.php"; ?> 	 	
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-
-    <!-- Include all compiled plugins (below), 
-    or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>  
-
-     <!-- Javascript for menu modals (delete/update) -->
-    <script src="js/menu_modals.js"></script>
-
-</body>
-</html>
-
-
-
+<!-- Footer Partial (including javascript) -->
+<?php require_once "partials/_footer.php"; ?>

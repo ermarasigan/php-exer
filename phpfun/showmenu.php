@@ -17,19 +17,42 @@
 
 
 					// Edit and delete buttons
-			    	$buttons = 
-			    		"<div class='form-group'>
-			    			<a href='menu_update.php?id=$id'>
-								<button class='btn btn-default btn-lg'>
-									Edit 
-								</button>
-						  	</a>
-						  	<a href='menu_delete.php?id=$id'>
-								<button class='btn btn-default btn-lg'>
-									Delete 
-								</button>
-						  	</a>
-						</div>";
+					if(!isset($_SESSION['role'])) $_SESSION['role'] = '';
+
+					if($_SESSION['role']=='admin'){
+				    	$buttons = 
+				    		"<div class='form-group'>
+				    			<a href='menu_update.php?id=$id'>
+									<button class='btn btn-default btn-lg'>
+										Edit 
+									</button>
+							  	</a>
+							  	<a href='menu_delete.php?id=$id'>
+									<button class='btn btn-default btn-lg'>
+										Delete 
+									</button>
+							  	</a>
+							</div>";
+					} else {
+						$buttons = 
+							// "<div class='form-group'>
+				   			//  	<a href='menu_cart.php?id=$id'>
+							// 		<button class='btn btn-default btn-lg'>
+							// 			Add to Cart
+							// 		</button>
+							//   	</a>
+							// </div>";
+							
+							// min=0 step=1 style='background: transparent; width: 40px; font-size: 20px; ' placeholder='0'
+
+						  	"
+						  	 <input class='btn btn-default btn-md' type='submit' id='$id' name='addtocart' style:'padding-top: 20px; display:block;'
+						  	 	value='Add to Cart' onclick='ajaxPost(this.id);'>
+					  	 	<input type='hidden' id='quantity$id' name='quantity' value=1>
+					  	 	<input type='hidden' id='itemname$id' name='itemname' value='$name'>
+					  	 	<input type='hidden' id='itemprice$id' name='itemprice' value=$price>
+					  	 	";
+					}
 
 
 					// Buttons to confirm or cancel Delete

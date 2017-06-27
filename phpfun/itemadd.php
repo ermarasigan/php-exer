@@ -8,7 +8,7 @@
 
 		if(isset($_POST['additem'])){
 
-			$name = ucfirst($_POST['name']);
+			$name = addslashes(ucfirst($_POST['name']));
 			$price = $_POST['price'];
 
 			// if ($name == '' || $name == null) {
