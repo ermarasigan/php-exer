@@ -20,6 +20,7 @@
         
         extract($row);
 
+        $_SESSION['userid'] = $id;
         $_SESSION['username'] = $username;
         $_SESSION['groupcode'] = $groupcode;
         $_SESSION['role'] = $role;

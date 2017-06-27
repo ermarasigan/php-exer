@@ -32,6 +32,7 @@
               <h2>Me too!</h2>
               <h3>Sign up now and let's order food.</h3>
               <a class="btn btn-default btn page-scroll" href="#">Back to top</a>
+              <?php require_once "order_summary.php"; ?>
           </div>
       </div>
   </div>

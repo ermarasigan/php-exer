@@ -22,39 +22,18 @@
   <!-- Javascript for menu modals (update/delete) -->
   <script src="js/menu_modals.js"></script>
 
-   <!-- Scrolling Nav JavaScript -->
+  <!-- Scrolling Nav JavaScript -->
   <script src="js/jquery.easing.min.js"></script>
   <script src="js/scrolling-nav.js"></script>
 
-  <script type="text/javascript">
-    function ajaxPost(id){
-      var quantity =$('#quantity'+id).val();
-      var itemname =$('#itemname'+id).val();
-      var itemprice =$('#itemprice'+id).val();
-      // console.log('yey');
+  <!-- Sweet Alert JavaScript -->
+  <script src="js/sweetalert.min.js"></script>
 
-      $.post("addtocart.php?id="+id,
-      {
-        quantity: quantity,
-        itemname: itemname,
-        itemprice: itemprice
-      },
-      function(data, status){
-        // alert(data);
-        location.reload();
-        // document.getElementById('#target').reload();
-      })
-      // function(){
-      //   var container = document.getElementById('#target');
-      //   var content = container.innerHTML;
-      //   container.innerHTML = content;
-      // })
-      ;
-    }
+  <!-- Javascript to process Add/remove cart and Checkout -->
+  <script src="js/checkout.js"></script>
 
-    
 
-  </script>
+
 
 </body>
 </html>

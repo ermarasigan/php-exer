@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="css/font_declarations.css">
 
   <!-- Formatting -->
+  <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
   <link rel="stylesheet" type="text/css" href="css/scrolling-nav.css">
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 

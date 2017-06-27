@@ -34,7 +34,11 @@
 							  	</a>
 							</div>";
 					} else {
-						$buttons = 
+
+						if($_SESSION['checkout']=='yes'){
+							$buttons='';
+						} else {
+							$buttons = 
 							// "<div class='form-group'>
 				   			//  	<a href='menu_cart.php?id=$id'>
 							// 		<button class='btn btn-default btn-lg'>
@@ -52,6 +56,7 @@
 					  	 	<input type='hidden' id='itemname$id' name='itemname' value='$name'>
 					  	 	<input type='hidden' id='itemprice$id' name='itemprice' value=$price>
 					  	 	";
+					  	}
 					}
 
 
