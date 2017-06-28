@@ -28,7 +28,8 @@
         $row2 = mysqli_fetch_assoc($result2);
         extract($row2);
 
-        echo "<br><br><br><h4>Order Summary <br>($maxdate) </h4><br>";
+        echo "<br><br><br><h4>($maxdate EST) <br><br>Order Breakdown </h4><br>";
+
 
         echo "<table class='table-bordered table-striped' style='margin: 0 auto;'>
                 <tr>
@@ -71,12 +72,55 @@
                         ₱$subtotal
                     </td>
                 </tr>";
-
-            // echo "<br>" . $customer_name . " " . $item_ordered . " " . $item_price. " " . $item_qty . " " . $subtotal;
             }
         echo "</table>";
+        
 
-        $sql3=" SELECT o.date as posting_date
+        $sql3 = "SELECT o.date as posting_date
+            ,m.name as ordered_item
+            ,sum(o.qty) as ordered_qty
+            FROM `orders` o
+            ,`menu` m
+            ,`users` u
+            WHERE o.userid = u.id
+            and o.menuid = m.id
+            and o.date IN
+            (select max(date) 
+             from orders)
+             group by o.menuid
+             order by m.name
+            ";
+        $result3 = mysqli_query($conn,$sql3);
+
+        echo "<br><br><h4>Orders per Item </h4><br>";
+
+        echo "<table class='table-bordered table-striped' style='margin: 0 auto;'>
+                <tr>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        Total Orders
+                    </th>
+                </tr>";
+
+        while($row3 = mysqli_fetch_assoc($result3)) {
+            extract($row3);
+           
+            echo "<tr>
+                    <td>
+                        $ordered_item 
+                    </td>
+                    <td class='text-right'>
+                        $ordered_qty
+                    </td>
+                </tr>";
+            }
+
+        echo "</table>";
+
+
+        $sql4=" SELECT o.date as posting_date
                 ,sum(o.qty*m.price) as total_bill
                 FROM `orders` o
                 ,`menu` m
@@ -87,9 +131,11 @@
                 (select max(date)
                  from orders)
                  group by o.date";
-        $result3 = mysqli_query($conn,$sql3);
-        $row3 = mysqli_fetch_assoc($result3);
-        extract($row3);
+        $result4 = mysqli_query($conn,$sql4);
+        $row4 = mysqli_fetch_assoc($result4);
+        extract($row4);
+
+
 
         echo "<br><br><h4>Total Bill: ₱$total_bill </h4><br><br>";
 

@@ -15,11 +15,14 @@
 <main class="container-fluid" id="welcomebg">
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-			<div style="border: 3px solid white; border-radius: 0 15px; padding: 20px; margin-bottom: 15px; ">
-			<h2 style="color: white;font-family: 'poppinssemibold';" > DO YOU LOVE <br> TO EAT? </h2>
-			
+			<div id="whiteborder">
+			  <h2 id="welcometext"> 
+          DO YOU LOVE <br> TO EAT? 
+        </h2>
 			</div>
-			<a class="btn btn-primary btn-lg page-scroll" href="#about">See more</a>
+			<a class="btn btn-primary btn-md page-scroll" href="#about">
+        See more
+      </a>
 		</div>
 	</div>
 </main>

@@ -288,3 +288,16 @@ a,
 a:hover {
 	text-decoration: none;
 }
+
+#whiteborder {
+	border: 3px solid white; 
+	border-radius: 0 15px; 
+	padding: 5%; 
+	margin-bottom: 5%;
+}
+
+#welcometext {
+	color: white;
+	font-family: 'poppinssemibold';
+	font-size: 4vmax;
+}
