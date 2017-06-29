@@ -16,9 +16,11 @@
 	<div class="row text-center">
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 			<h1> Everyone loves to eat </h1>
-			<?php showmenu('delete'); ?>
-
-			
+			<?php 
+				if (isset($_SESSION['username'])){
+					showmenu('delete'); 
+				}
+			?>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 			

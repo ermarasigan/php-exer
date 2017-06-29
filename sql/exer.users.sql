@@ -82,3 +82,11 @@ and o.date IN
 (select max(date)
  from orders)
  group by o.userid
+
+
+ https://www.sitepoint.com/synchronize-php-mysql-timezone-configuration/
+
+ tuitt-may2017-resources
+ tuittday4
+
+ http://www.javascriptkit.com/javatutors/requestanimationframe.shtml
