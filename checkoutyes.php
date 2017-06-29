@@ -7,8 +7,8 @@
 
 	foreach($_SESSION['cart_items'] as $key => $value){
 		if($value>0){
-			$sql = "insert into orders (date, qty, userid, menuid) 
-						values (current_date, $value, $userid, $key)";	
+			$sql = "insert into orders (date, qty, userid, menuid, unpaid) 
+						values (current_date, $value, $userid, $key, 'y')";	
 			$result= mysqli_query($conn, $sql);
 			if($result){
 				$_SESSION['cart_items'][$key] = 0;

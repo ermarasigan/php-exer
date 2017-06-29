@@ -28,6 +28,16 @@ function ajaxRemove(id){
   ;
 }
 
+function ajaxPaid(id){
+
+  $.post("markpaid.php?id="+id,
+  function(data, status){
+    // alert(data);
+    location.reload();
+  })
+  ;
+}
+
 function checkout(){
 
   $.post("checkout.php",

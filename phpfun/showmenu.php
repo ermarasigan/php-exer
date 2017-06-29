@@ -83,6 +83,14 @@
 							  </div>";
 					}
 
+					if ($action=='additem') {
+						echo "<div class='itembox clear'>
+						    	$name <br>
+			    				$price <br>
+				    			$buttons
+							  </div>";
+					}
+
 					if ($action=='delete') {
 						if ($_GET['id'] == $id) {
 			    			echo "<div class='itembox deletebox clear'>";

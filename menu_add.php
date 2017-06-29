@@ -18,7 +18,7 @@
 			<h1> Everyone loves to eat </h1>
 			<?php 
 				if (isset($_SESSION['username'])){
-					showmenu('display');
+					showmenu('additem');
 				} 
 			?>
 		</div>
