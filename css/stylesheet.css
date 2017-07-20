@@ -301,3 +301,11 @@ a:hover {
 	font-family: 'poppinssemibold';
 	font-size: 4vmax;
 }
+
+#countdown-text,
+#countdown-clock {
+	color: white; 
+	font-size: 2em; 
+	font-family: poppinsregular;
+	padding: 15px 0;
+}

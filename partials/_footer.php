@@ -32,7 +32,8 @@
   <!-- Javascript to process Add/remove cart and Checkout -->
   <script src="js/checkout.js"></script>
 
-
+  <!-- Javascript for countdown timer -->
+  <script src="js/countdown.js"></script>
 
 
 </body>
